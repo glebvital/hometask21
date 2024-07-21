@@ -14,7 +14,7 @@ class Timer extends Thread{
     }
 
 
-    // open-closed
+
     public void timer() throws Exception{
         if (!text.getText().matches("[0-9]+")){
             new Exception();
