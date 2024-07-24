@@ -2,7 +2,7 @@ package org.example;
 
 import javax.swing.*;
 
-class Timer extends Thread{
+class Timer extends Thread implements TimerBase{
 
     private JTextField text;
     private JTextField timerText;
@@ -15,7 +15,7 @@ class Timer extends Thread{
 
 
 
-    public void timer() throws Exception{
+    public void begin() throws Exception{
         if (!text.getText().matches("[0-9]+")){
             new Exception();
             return;
@@ -38,7 +38,7 @@ class Timer extends Thread{
     @Override
     public void run() {
         try {
-            timer();
+            begin();
         } catch (Exception e) {
             System.out.println("make sure you inputted numbers");
             throw new RuntimeException(e);

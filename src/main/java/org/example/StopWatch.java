@@ -2,14 +2,13 @@ package org.example;
 
 import javax.swing.*;
 
-class Stopwatch extends Timer{
+class Stopwatch extends Thread implements TimerBase{
 
     private JTextField stopwatchText;
     private boolean booleanvalue;
     private int i = 0;
 
     public Stopwatch(JTextField stopwatchText) {
-        super(null,null);
         this.stopwatchText = stopwatchText;
     }
 
@@ -24,7 +23,7 @@ class Stopwatch extends Timer{
     @Override
     public void run() {
         try {
-            timer();
+            begin();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -32,7 +31,7 @@ class Stopwatch extends Timer{
 
     //open - closed
     @Override
-    public void timer() throws Exception {
+    public void begin() throws Exception {
         while (booleanvalue) {
             String sec = String.valueOf(i % 60);
             String min = String.valueOf((i/60) % 60);
