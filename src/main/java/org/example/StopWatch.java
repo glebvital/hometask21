@@ -29,7 +29,6 @@ class Stopwatch extends Thread implements TimerBase{
         }
     }
 
-    //open - closed
     @Override
     public void begin() throws Exception {
         while (booleanvalue) {
